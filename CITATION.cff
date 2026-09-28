@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this analysis, please cite it as software. For the underlying dataset, also cite the original Tensor Trust paper as described in README.md."
+title: "After the Breach: Strategy Persistence and Social Learning in Tensor Trust"
+authors:
+  - family-names: Adhikari
+    given-names: Apil
+    orcid: "https://orcid.org/0009-0008-4475-0838"
+version: 1.0.0
+date-released: 2026-09-28
+url: "https://github.com/annapurnageeks/tensor-trust-behavioral-analysis"
+repository-code: "https://github.com/annapurnageeks/tensor-trust-behavioral-analysis"
+keywords:
+  - Tensor Trust
+  - prompt injection
+  - behavioral analysis
+  - social learning
+  - strategy persistence

@@ -1,0 +1,2 @@
+session_gap_minutes,calendar_weeks,pair_count,player_clusters,log_odds_coefficient,odds_ratio,odds_ratio_ci95_low,odds_ratio_ci95_high,p_value
+60,36,540971,3806,0.20603708254975883,1.2287987701419898,1.103879645233104,1.367854207678242,0.0001653465251597585

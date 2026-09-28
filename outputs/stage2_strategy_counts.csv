@@ -1,0 +1,10 @@
+strategy,attacks_covered,percent_of_attacks
+repeated_character_prefix,30097,5.462200887469261
+artisanlib,12365,2.2440812696799486
+role_play_framing,11718,2.12665946769993
+instruction_override,17903,3.249153818930863
+direct_request,272791,49.50789920236659
+code_or_pseudocode,53720,9.749457808912805
+encoded_input,86909,15.77281512871934
+few_shot_examples,86698,15.734521465322457
+other,193483,35.11456338871698
