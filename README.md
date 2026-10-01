@@ -44,27 +44,27 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 mkdir -p data
 # Put raw_dump_attacks.jsonl.bz2 at data/raw_dump_attacks.jsonl.bz2
-python analysis.py
+python analysis/main_analysis.py
 ```
 
-The script uses a fixed seed (`2023`). It writes aggregate CSV tables and PNG charts under `outputs/`. Main execution does not print or save attack text. Raw inputs, the virtual environment, LaTeX build intermediates, and the draft paper source/PDF are excluded from this repository.
+The script uses a fixed seed (`2023`). It writes aggregate CSV tables under `outputs/` and PNG charts under `figures/`. Main execution does not print or save attack text. Raw inputs, the virtual environment, LaTeX build intermediates, and the draft paper source/PDF are excluded from this repository.
 
 ## Included outputs
 
-- `stage1_cleaning_summary.csv`: row counts after cleaning steps.
-- `stage2_strategy_counts.csv`: label coverage counts and percentages.
-- `stage3_win_stay_lose_shift.csv`: conditional repetition rates and player-bootstrap intervals.
-- `stage3_session_sensitivity.csv`: 30-, 60-, and 120-minute session-gap checks.
+- `cleaning_summary.csv`: row counts after cleaning steps.
+- `table1_coverage.csv`: label coverage counts and percentages.
+- `table2_persistence.csv`: conditional repetition rates and player-bootstrap intervals.
+- `table3_sensitivity.csv`: 30-, 60-, and 120-minute session-gap checks.
+- `table4_adoption.csv`: exposure-group adoption rates, intervals, and tests.
 - `stage3_calendar_adjusted.csv`: calendar-week-adjusted repetition model.
-- `stage4_social_learning.csv`: exposure-group adoption rates, intervals, and tests.
 - `stage4_pre_exposure_sensitivity.csv`: later use among players exposed before their first attack.
-- `stage4_weekly_strategy_popularity.csv`: weekly strategy shares.
-- PNG files: aggregate charts corresponding to the analyses.
+- `weekly_strategy_popularity.csv`: weekly strategy shares.
+- `figures/figure1_repetition.png`, `figures/figure2_adoption.png`, and `figures/figure3_weekly.png`: aggregate charts corresponding to the analyses.
 
 ## Citation
 
 For the dataset and original game study, cite:
 
-> Toyer, S., Watkins, O., Mendes, E. A., Svegliato, J., Bailey, L., Wang, T., Ong, I., Elmaaroufi, K., Abbeel, P., Darrell, T., Ritter, A., & Russell, S. (2023). *Tensor Trust: Interpretable Prompt Injection Attacks from an Online Game*. arXiv:2311.01011. https://doi.org/10.48550/arXiv.2311.01011
+> Toyer, S., Watkins, O., Mendes, E. A., Svegliato, J., Bailey, L., Wang, T., Ong, I., Elmaaroufi, K., Abbeel, P., Darrell, T., Ritter, A., & Russell, S. (2023). [*Tensor Trust: Interpretable Prompt Injection Attacks from an Online Game*](https://arxiv.org/abs/2311.01011). arXiv:2311.01011. https://doi.org/10.48550/arXiv.2311.01011
 
 To cite this software/repository, use the metadata in [`CITATION.cff`](CITATION.cff).

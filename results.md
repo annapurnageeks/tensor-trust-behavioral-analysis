@@ -26,7 +26,7 @@ The rule-based detectors allow multiple labels per attack. “Other” means non
 | Few-shot examples | 86,698 | 15.73% |
 | Other / unlabeled | 193,483 | 35.11% |
 
-Detailed counts: [stage2_strategy_counts.csv](outputs/stage2_strategy_counts.csv).
+Detailed counts: [table1_coverage.csv](outputs/table1_coverage.csv).
 
 A seeded manual review of 30 randomly selected “other” rows found a heterogeneous mix of short fragments or values, incomplete inputs, and instruction-like, encoded, or formatting tactics missed by the simple detectors. This small diagnostic sample is not a representative qualitative taxonomy, and no attack excerpts are reproduced here.
 
@@ -51,9 +51,9 @@ The contrast is stable to the session-gap choice:
 
 With UTC calendar-week fixed effects and player-clustered robust errors, the odds ratio for repeat after success versus failure is **1.229** (95% CI: 1.104–1.368, `p = 0.00017`; 540,971 pairs, 36 weeks). This makes it less likely that the observed difference is solely due to shared weekly prevalence changes, but does not remove all confounding.
 
-![Win-stay, lose-shift repeat rates and confidence intervals](outputs/stage3_win_stay_lose_shift.png)
+![Win-stay, lose-shift repeat rates and confidence intervals](figures/figure1_repetition.png)
 
-Detailed results: [stage3_win_stay_lose_shift.csv](outputs/stage3_win_stay_lose_shift.csv).
+Detailed results: [table2_persistence.csv](outputs/table2_persistence.csv).
 
 ## Social learning
 
@@ -76,17 +76,17 @@ Each group rate now has a 95% Wilson interval; exposed-minus-unexposed differenc
 
 In the stricter landmark sensitivity, only **28 of 4,318 attackers** had received any non-self attack before their first outgoing attack. Measuring tactic use only in later attacks gives direct-request use of 64.29% (18/28; 95% Wilson CI 45.83–79.29%) in this early-exposed group versus 71.24% (3,056/4,290; 69.86–72.57%) among other players. The risk difference is −6.95 percentage points (95% Newcombe CI −25.45 to 8.12; BH-adjusted `q = 0.466`). None of the eight tests in this small-cohort sensitivity survives correction; the 28 exposed players make estimates imprecise. See [stage4_pre_exposure_sensitivity.csv](outputs/stage4_pre_exposure_sensitivity.csv).
 
-![Adoption rates by prior exposure](outputs/stage4_adoption_rates.png)
+![Adoption rates by prior exposure](figures/figure2_adoption.png)
 
 The dump covers **36 UTC weeks**, from the week ending June 18, 2023 through the week ending February 18, 2024. Weekly popularity is each label's share of cleaned attacks that week; labels can overlap.
 
 The apparent direct-request peak is 100% in the week ending July 9, but that is only **2/2 attacks**. Its minimum is 28.23% (1,492/5,285 attacks) in the week ending September 17. The peak is therefore a tiny-denominator fluctuation, not evidence that direct requests dominated a high-volume week.
 
-![Weekly strategy popularity](outputs/stage4_weekly_strategy_popularity.png)
+![Weekly strategy popularity](figures/figure3_weekly.png)
 
-Detailed tables: [stage4_social_learning.csv](outputs/stage4_social_learning.csv) and [stage4_weekly_strategy_popularity.csv](outputs/stage4_weekly_strategy_popularity.csv).
+Detailed tables: [table4_adoption.csv](outputs/table4_adoption.csv) and [weekly_strategy_popularity.csv](outputs/weekly_strategy_popularity.csv).
 
-Additional robustness tables: [stage3_session_sensitivity.csv](outputs/stage3_session_sensitivity.csv) and [stage3_calendar_adjusted.csv](outputs/stage3_calendar_adjusted.csv).
+Additional robustness tables: [table3_sensitivity.csv](outputs/table3_sensitivity.csv) and [stage3_calendar_adjusted.csv](outputs/stage3_calendar_adjusted.csv).
 
 ## Limitations
 

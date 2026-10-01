@@ -15,9 +15,10 @@ import statsmodels.formula.api as smf
 RANDOM_SEED = 2023
 np.random.seed(RANDOM_SEED)
 
-PROJECT_DIR = Path(__file__).resolve().parent
+PROJECT_DIR = Path(__file__).resolve().parent.parent
 ATTACKS_FILE = PROJECT_DIR / "data" / "raw_dump_attacks.jsonl.bz2"
 OUTPUT_DIR = PROJECT_DIR / "outputs"
+FIGURES_DIR = PROJECT_DIR / "figures"
 SESSION_GAP_MINUTES = 60
 BOOTSTRAP_REPLICATES = 2000
 
@@ -394,7 +395,7 @@ def analyze_win_stay_lose_shift(
     axis.set_ylim(bottom=0)
     axis.legend(frameon=False)
     fig.tight_layout()
-    chart_path = OUTPUT_DIR / "stage3_win_stay_lose_shift.png"
+    chart_path = FIGURES_DIR / "figure1_repetition.png"
     fig.savefig(chart_path, dpi=160)
     plt.close(fig)
     print(f"Chart saved to: {chart_path.relative_to(PROJECT_DIR)}")
@@ -716,7 +717,7 @@ def analyze_social_learning(
     rate_axis.set_ylim(bottom=0)
     rate_axis.legend(title="Prior exposure", frameon=False)
     fig.tight_layout()
-    adoption_chart_path = OUTPUT_DIR / "stage4_adoption_rates.png"
+    adoption_chart_path = FIGURES_DIR / "figure2_adoption.png"
     fig.savefig(adoption_chart_path, dpi=160)
     plt.close(fig)
 
@@ -730,7 +731,7 @@ def analyze_social_learning(
     weekly_axis.set_title("Weekly strategy popularity")
     weekly_axis.legend(title="Strategy", frameon=False, ncol=2)
     weekly_axis.figure.tight_layout()
-    weekly_chart_path = OUTPUT_DIR / "stage4_weekly_strategy_popularity.png"
+    weekly_chart_path = FIGURES_DIR / "figure3_weekly.png"
     weekly_axis.figure.savefig(weekly_chart_path, dpi=160)
     plt.close(weekly_axis.figure)
     print(f"Adoption chart saved to: {adoption_chart_path.relative_to(PROJECT_DIR)}")
@@ -835,17 +836,18 @@ def main() -> None:
 
     # Save only step names and row counts, not prompts or model responses.
     OUTPUT_DIR.mkdir(exist_ok=True)
-    cleaning_report_path = OUTPUT_DIR / "stage1_cleaning_summary.csv"
+    FIGURES_DIR.mkdir(exist_ok=True)
+    cleaning_report_path = OUTPUT_DIR / "cleaning_summary.csv"
     cleaning_report.to_csv(cleaning_report_path, index=False)
-    strategy_report_path = OUTPUT_DIR / "stage2_strategy_counts.csv"
+    strategy_report_path = OUTPUT_DIR / "table1_coverage.csv"
     labeled_attacks.attrs["stage2_report"].to_csv(strategy_report_path, index=False)
-    stage3_report_path = OUTPUT_DIR / "stage3_win_stay_lose_shift.csv"
+    stage3_report_path = OUTPUT_DIR / "table2_persistence.csv"
     win_stay_report.to_csv(stage3_report_path, index=False)
-    adoption_report_path = OUTPUT_DIR / "stage4_social_learning.csv"
+    adoption_report_path = OUTPUT_DIR / "table4_adoption.csv"
     adoption_report.to_csv(adoption_report_path, index=False)
-    weekly_report_path = OUTPUT_DIR / "stage4_weekly_strategy_popularity.csv"
+    weekly_report_path = OUTPUT_DIR / "weekly_strategy_popularity.csv"
     weekly_report.to_csv(weekly_report_path, index=False)
-    session_sensitivity_path = OUTPUT_DIR / "stage3_session_sensitivity.csv"
+    session_sensitivity_path = OUTPUT_DIR / "table3_sensitivity.csv"
     session_sensitivity.to_csv(session_sensitivity_path, index=False)
     calendar_adjusted_path = OUTPUT_DIR / "stage3_calendar_adjusted.csv"
     calendar_adjusted_report.to_csv(calendar_adjusted_path, index=False)
